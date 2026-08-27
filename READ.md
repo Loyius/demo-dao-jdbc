@@ -1,7 +1,7 @@
 # Project Architecture
 
 ### Department entity class
-Entity class check list:
+Entity class checklist:
     . Attributes
     . Constructors
     . Getters/Setters
@@ -9,3 +9,11 @@ Entity class check list:
     . toString
     . implements Serializable
 
+### Seller entity class
+Entity class checklist:
+    . Attributes
+    . Getters/Setters
+    . Contructors
+    . hashCode and equals
+    . toString
+    . implements Serializable

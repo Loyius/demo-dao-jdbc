@@ -25,6 +25,15 @@ public class Department implements Serializable {
         this.name = name;
     }
 
+    public Department() {
+
+    }
+
+    public Department( Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -33,21 +42,14 @@ public class Department implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return " Departments\n" + " id = " + id + " | name = " + name;
-    }
-
-    @Override
     public int hashCode() {
         return Objects.hashCode(id);
     }
 
-    public Department() {
-
-    }
-
-    public Department( Integer id, String name) {
-        this.id = id;
-        this.name = name;
+    @Override
+    public String toString() {
+        return " Departments\n" +
+                " id = " + id +
+                " | name = " + name;
     }
 }
