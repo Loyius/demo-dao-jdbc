@@ -1,4 +1,4 @@
-package com.jdbc.coursejdbc.src.db;
+package com.jdbc.coursejdbc.db;
 
 public class DbException extends RuntimeException {
     private static final long serialVersionUID = 1L;

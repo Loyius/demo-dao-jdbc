@@ -1,6 +1,6 @@
-package com.jdbc.coursejdbc.src.model.dao;
+package com.jdbc.coursejdbc.model.dao;
 
-import com.jdbc.coursejdbc.src.model.entities.Department;
+import com.jdbc.coursejdbc.model.entities.Department;
 
 import java.util.List;
 

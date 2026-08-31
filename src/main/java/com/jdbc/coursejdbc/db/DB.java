@@ -1,4 +1,4 @@
-package com.jdbc.coursejdbc.src.db;
+package com.jdbc.coursejdbc.db;
 
 import java.io.IOException;
 import java.io.InputStream;

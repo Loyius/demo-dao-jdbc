@@ -1,7 +1,7 @@
-package com.jdbc.coursejdbc.src.application;
+package com.jdbc.coursejdbc.application;
 
-import com.jdbc.coursejdbc.src.model.entities.Department;
-import com.jdbc.coursejdbc.src.model.entities.Seller;
+import com.jdbc.coursejdbc.model.entities.Department;
+import com.jdbc.coursejdbc.model.entities.Seller;
 
 import java.util.Date;
 

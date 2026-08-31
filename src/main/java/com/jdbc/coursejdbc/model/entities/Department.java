@@ -1,4 +1,4 @@
-package com.jdbc.coursejdbc.src.model.entities;
+package com.jdbc.coursejdbc.model.entities;
 
 import java.io.Serializable;
 import java.util.Objects;
