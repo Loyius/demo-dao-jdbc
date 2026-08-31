@@ -1,10 +1,8 @@
-package application;
+package com.jdbc.coursejdbc.src.application;
 
-import db.DB;
-import model.entities.Department;
-import model.entities.Seller;
+import com.jdbc.coursejdbc.src.model.entities.Department;
+import com.jdbc.coursejdbc.src.model.entities.Seller;
 
-import java.sql.Connection;
 import java.util.Date;
 
 public class Program {
