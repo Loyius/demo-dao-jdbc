@@ -5,8 +5,6 @@ import com.jdbc.coursejdbc.db.DbException;
 import com.jdbc.coursejdbc.model.dao.SellerDao;
 import com.jdbc.coursejdbc.model.entities.Department;
 import com.jdbc.coursejdbc.model.entities.Seller;
-
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -74,6 +72,7 @@ public class SellerDaoJDBC implements SellerDao {
             if(rs.next()) {
                 Department depart = instantiateDepartment(rs);
                 Seller obj = instantiateSeller(rs, depart);
+                return obj;
             }
             return null;
         }
