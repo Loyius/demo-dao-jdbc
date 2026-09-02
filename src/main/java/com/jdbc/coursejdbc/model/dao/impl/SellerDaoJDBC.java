@@ -70,6 +70,7 @@ public class SellerDaoJDBC implements SellerDao {
 
             st.setInt(1, id);
             rs = st.executeQuery();
+
             if(rs.next()) {
                 Department depart = instantiateDepartment(rs);
                 Seller obj = instantiateSeller(rs, depart);
@@ -87,7 +88,38 @@ public class SellerDaoJDBC implements SellerDao {
 
     @Override
     public List<Seller> findAll() {
-        return List.of();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try{
+            st = conn.prepareStatement(
+                    "SELECT seller.*, departament.Name as DepName"+
+                        "FROM seller INNER JOIN departament"+
+                        "ON seller.DepartamentId = departament.Id"
+            );
+
+            rs = st.executeQuery();
+            List<Seller> list = new ArrayList<>();
+            Map<Integer, Department> map = new HashMap<>();
+
+            while(rs.next()) {
+
+                Department depart = map.get(rs.getInt("DepartamentId"));
+                if(depart == null) {
+                    depart = instantiateDepartment(rs);
+                    map.put(rs.getInt("DepartamentId"), depart);
+                }
+                Seller obj = instantiateSeller(rs, depart);
+                list.add(obj);
+            }
+            return list;
+        }
+        catch (SQLException e){
+            throw new DbException(e.getMessage());
+        }
+        finally {
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
+        }
     }
 //referencia ao mesmo objeto
     @Override
