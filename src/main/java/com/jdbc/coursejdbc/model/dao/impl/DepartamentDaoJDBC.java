@@ -17,8 +17,8 @@ public class DepartamentDaoJDBC implements DepartamentDao {
 
     private Department instantiateDepartment (ResultSet rs) throws SQLException {
         Department depart = new  Department();
-        depart.setId(rs.getInt("DepartamentId"));
-        depart.setName(rs.getString("DepName"));
+        depart.setId(rs.getInt("Id"));
+        depart.setName(rs.getString("Name"));
         return depart;
     }
 
@@ -32,7 +32,7 @@ public class DepartamentDaoJDBC implements DepartamentDao {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement(
-                    "INSERT INTO department (DepName)" +
+                    "INSERT INTO department (Name)" +
                             "VALUES (?)"
                     , Statement.RETURN_GENERATED_KEYS);
 
@@ -61,10 +61,11 @@ public class DepartamentDaoJDBC implements DepartamentDao {
         PreparedStatement st = null;
         try{
             st = conn.prepareStatement(
-                    "UPDATE department SET DepName = ?"
+                    "UPDATE department SET Name = ? WHERE Id = ?"
                     , Statement.RETURN_GENERATED_KEYS
             );
             st.setString(1, obj.getName());
+            st.setInt(2, obj.getId());
 
             st.executeUpdate();
         } catch (SQLException e){
@@ -78,7 +79,7 @@ public class DepartamentDaoJDBC implements DepartamentDao {
     public void deleteById(Integer id) {
         PreparedStatement st = null;
         try{
-            st = conn.prepareStatement("DELETE FROM department WHERE DepartamentId = ?");
+            st = conn.prepareStatement("DELETE FROM department WHERE Id = ?");
             st.setInt(1, id);
             int rows =  st.executeUpdate();
 
@@ -97,7 +98,7 @@ public class DepartamentDaoJDBC implements DepartamentDao {
         PreparedStatement st = null;
         ResultSet rs = null;
         try{
-            st = conn.prepareStatement("SELECT * FROM department WHERE DepartamentId = ?");
+            st = conn.prepareStatement("SELECT * FROM department WHERE Id = ?");
             st.setInt(1,id);
             rs = st.executeQuery();
             if(rs.next()){
